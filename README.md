@@ -78,16 +78,16 @@ docker-compose exec web python app/db.py
 5. To explore the SWAGGER-like API Docs, explore to: http://localhost:8004/docs
 
 
-## API Endpoints
+### API Endpoints
 
------------------------------------------------------------
 | Endpoint       | HTTP Method | Result                         |
 |:---------------|:-----------:|:-------------------------------|
 | /ping          | GET         | Get Environment Configs + Pong!|
 | /summaries     | GET         | Get all summaries              |
 | /summaries/:id | GET         | Get a single summary           |
 | /summaries     | POST        | Add a summary                  |
------------------------------------------------------------
+
+
 ### Useful Commands
 
 To re-build any new changes to application:

@@ -78,7 +78,6 @@ docker-compose exec web python app/db.py
 
 ### Useful Commands
 
----
 To re-build any new changes to application:
 ```bash
 docker-compose up -d --build
@@ -99,3 +98,14 @@ To POST a url into the summaries database, use [httpie](https://httpie.io/):
 ```bash
 http --json POST http://localhost:8004/summaries/ url=http://example.com
 ```
+
+## API Endpoints
+
+-----------------------------------------------------------
+| Endpoint       | HTTP Method | Result                         |
+|:--------------:|:-----------:|:------------------------------:|
+| /ping          | GET         | Get Environment Configs + Pong!|
+| /summaries     | GET         | Get all summaries              |
+| /summaries/:id | GET         | Get a single summary           |
+| /summaries     | POST        | Add a summary                  |
+-----------------------------------------------------------

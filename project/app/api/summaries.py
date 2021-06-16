@@ -13,7 +13,7 @@ router = APIRouter()
 ###############################################################################
 # GET Routes
 ###############################################################################
-@router.get("/{id}/", response_model=SummarySchema)
+@router.get("/summaries/{id}/", response_model=SummarySchema)
 async def read_summary(id: int) -> SummarySchema:
     summary = await crud.get(id)
     if not summary:
@@ -22,7 +22,7 @@ async def read_summary(id: int) -> SummarySchema:
     return summary
 
 
-@router.get("/", response_model=List[SummarySchema])
+@router.get("/summaries/", response_model=List[SummarySchema])
 async def read_all_summaries() -> List[SummarySchema]:
     return await crud.get_all()
 
@@ -30,7 +30,7 @@ async def read_all_summaries() -> List[SummarySchema]:
 ###############################################################################
 # POST Routes
 ###############################################################################
-@router.post("/", response_model=SummaryResponseSchema, status_code=201)
+@router.post("/summaries/", response_model=SummaryResponseSchema, status_code=201)
 async def create_summary(payload: SummaryPayloadSchema) -> SummaryResponseSchema:
     summary_id = await crud.post(payload)
 

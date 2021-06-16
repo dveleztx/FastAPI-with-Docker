@@ -69,7 +69,12 @@ docker-compose build
 ```bash
 docker compose up -d
 ```
-3. Explore the URL of the API: http://localhost:8004/
+3. Now, generate the database schemas:
+```bash
+docker-compose exec web python app/db.py
+```   
+4. Explore the URL of the API: http://localhost:8004/
+5. To explore the SWAGGER-like API Docs, explore to: http://localhost:8004/docs
 
 ### Useful Commands
 
@@ -88,4 +93,9 @@ docker-compose logs web-db
 Access PostgreSQL Database:
 ```bash
 docker-compose exec web-db psql -U postgres
+```
+---
+To POST a url into the summaries database, use [httpie](https://httpie.io/):
+```bash
+http --json POST http://localhost:8004/summaries/ url=http://example.com
 ```

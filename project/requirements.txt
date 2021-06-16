@@ -4,3 +4,4 @@ requests==2.25.1
 pytest==6.2.2
 tortoise-orm==0.16.21
 uvicorn==0.13.4
+httpie==2.4.0

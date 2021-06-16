@@ -55,6 +55,7 @@
   - The `--reload` argument updates the page with any changes you make on the project files
   - **NOTE**: The databases are going to have to be created for the app to work locally, and connection strings are going to need to be written
 
+
 ## Usage
 
 Docker is the intended way to run this application. To install it, follow these [docs](https://docs.docker.com/get-docker/).
@@ -76,6 +77,17 @@ docker-compose exec web python app/db.py
 4. Explore the URL of the API: http://localhost:8004/
 5. To explore the SWAGGER-like API Docs, explore to: http://localhost:8004/docs
 
+
+## API Endpoints
+
+-----------------------------------------------------------
+| Endpoint       | HTTP Method | Result                         |
+|:---------------|:-----------:|:-------------------------------|
+| /ping          | GET         | Get Environment Configs + Pong!|
+| /summaries     | GET         | Get all summaries              |
+| /summaries/:id | GET         | Get a single summary           |
+| /summaries     | POST        | Add a summary                  |
+-----------------------------------------------------------
 ### Useful Commands
 
 To re-build any new changes to application:
@@ -98,14 +110,3 @@ To POST a url into the summaries database, use [httpie](https://httpie.io/):
 ```bash
 http --json POST http://localhost:8004/summaries/ url=http://example.com
 ```
-
-## API Endpoints
-
------------------------------------------------------------
-| Endpoint       | HTTP Method | Result                         |
-|:--------------:|:-----------:|:------------------------------:|
-| /ping          | GET         | Get Environment Configs + Pong!|
-| /summaries     | GET         | Get all summaries              |
-| /summaries/:id | GET         | Get a single summary           |
-| /summaries     | POST        | Add a summary                  |
------------------------------------------------------------

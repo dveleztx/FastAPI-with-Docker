@@ -2,10 +2,10 @@
 import os
 import pytest
 from starlette.testclient import TestClient
-# Custom Imports
-from app.main import create_application
-from app.config import get_settings, Settings
 from tortoise.contrib.fastapi import register_tortoise
+# Custom Imports
+from app.config import Settings, get_settings
+from app.main import create_application
 
 
 def get_settings_override():

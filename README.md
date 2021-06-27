@@ -90,6 +90,8 @@ docker-compose exec web python app/db.py
 | /summaries     | GET         | Get all summaries              |
 | /summaries/:id | GET         | Get a single summary           |
 | /summaries     | POST        | Add a summary                  |
+| /summaries/:id | PUT         | Update a summary                  |
+| /summaries/:id | DELETE      | Delete a summary                  |
 
 ---
 

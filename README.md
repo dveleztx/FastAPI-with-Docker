@@ -91,6 +91,25 @@ docker-compose exec web python app/db.py
 | /summaries/:id | GET         | Get a single summary           |
 | /summaries     | POST        | Add a summary                  |
 
+---
+
+### Testing Endpoints using PyTest
+
+Tests are stored in **project/tests** directory. There are two scripts, one for testing the *ping* endpoint, and one for the *summaries* endpoints.
+
+**NOTE**: In order to perform PyTests, the webapp must be running in a docker container.
+
+To run the pytests, run the following command:
+
+```bash
+docker-compose exec web python -m pytest
+```
+
+To generate a report with PyTest, run the following command:
+
+```bash
+docker-compose exec web python -m pytest --cov="."
+```
 
 ---
 

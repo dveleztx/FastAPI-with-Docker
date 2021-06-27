@@ -107,13 +107,24 @@ def test_update_summary(test_app_with_db):
 
 
 @pytest.mark.parametrize("summary_id, payload, status_code, detail", [
-    [999, {"url": "https://foo.bar", "summary": "updated!"}, 404, "Summary not found"],
+    [
+        999,
+        {"url": "https://foo.bar", "summary": "updated!"},
+        404,
+        "Summary not found"
+    ],
     [
         0,
         {"url": "https://foo.bar", "summary": "updated!"},
         422,
-        [{"loc": ["path", "id"], "msg": "ensure this value is greater than 0", "type": "value_error.number.not_gt",
-          "ctx": {"limit_value": 0}}]
+        [
+            {
+                "loc": ["path", "id"],
+                "msg": "ensure this value is greater than 0",
+                "type": "value_error.number.not_gt",
+                "ctx": {"limit_value": 0}
+            }
+        ]
     ],
     [
         1,

@@ -41,14 +41,14 @@
 
 ### Important Files
 
-- **_project/app/main.py_** - Starts the application, in our case we use uvicorn
-- **_project/app/config.py_** - Application configurations, environment variables, etc.
-- **_project/app/db.py_** - Sets up database and initializing the connection with the app
-- **_project/db/create.sql_** - SQL scripts that creates our databases, CRUD operations are handled elsewhere
-- **_project/tests/conftest.py_** - Configuration for our PyTests
-- **_project/app/Dockerfile_** - Docker will spin up a slim-buster Docker image with Python 3.9.2, this creates the web app container
-- **_project/db/Dockerfile_** - Docker will spin up a postgres container, create a database, and serve as our database container
-- **_docker-compose.yml_** - Builds and configures our web and webdb containers, while triggering the Dockerfiles within the `project` directory
+- [project/app/main.py](./project/app/main.py) - Starts the application, in our case we use uvicorn
+- [project/app/config.py](./project/app/config.py) - Application configurations, environment variables, etc.
+- [project/app/db.py](./project/app/db.py) - Sets up database and initializing the connection with the app
+- [project/db/create.sql](./project/db/create.sql) - SQL scripts that creates our databases, CRUD operations are handled elsewhere
+- [project/tests/conftest.py](./project/tests/conftest.py) - Configuration for our PyTests
+- [project/app/Dockerfile](./project/app/Dockerfile) - Docker will spin up a slim-buster Docker image with Python 3.9.2, this creates the web app container
+- [project/db/Dockerfile](./project/db/Dockerfile) - Docker will spin up a postgres container, create a database, and serve as our database container
+- [docker-compose.yml](./docker-compose.yml) - Builds and configures our web and webdb containers, while triggering the Dockerfiles within the `project` directory
 
 
 ### Things to know
@@ -71,7 +71,7 @@ docker-compose build
 ```
 2. Next, once the build is done, kick off the container in detached mode (runs in the background):
 ```bash
-docker compose up -d
+docker-compose up -d
 ```
 3. Now, generate the database schemas:
 ```bash
@@ -90,8 +90,8 @@ docker-compose exec web python app/db.py
 | /summaries     | GET         | Get all summaries              |
 | /summaries/:id | GET         | Get a single summary           |
 | /summaries     | POST        | Add a summary                  |
-| /summaries/:id | PUT         | Update a summary                  |
-| /summaries/:id | DELETE      | Delete a summary                  |
+| /summaries/:id | PUT         | Update a summary               |
+| /summaries/:id | DELETE      | Delete a summary               |
 
 ---
 
@@ -99,7 +99,7 @@ docker-compose exec web python app/db.py
 
 Tests are stored in **project/tests** directory. There are two scripts, one for testing the *ping* endpoint, and one for the *summaries* endpoints.
 
-**NOTE**: In order to perform PyTests, the webapp must be running in a docker container.
+**NOTE**: In order to perform PyTests, the webapp must be running in a docker container. Also, the **conftest.py** file should not be changed, as it is a recognized template name for looking for pytest configurations.
 
 To run the pytests, run the following command:
 
